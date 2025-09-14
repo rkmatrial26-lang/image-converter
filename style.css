@@ -24,7 +24,7 @@ body {
 
 .main-container {
     width: 100%;
-    max-width: 900px; /* Increased width for new content */
+    max-width: 900px;
     padding: 20px;
     box-sizing: border-box;
     margin: 20px auto;
@@ -76,20 +76,20 @@ body {
 .app-footer p { margin: 0; color: #a1a1a6; font-size: 0.85rem; }
 
 
-/* Ad Placeholders */
+/* === MODIFIED: Ad Placeholders Optimized for Live Ads === */
 .ad-placeholder {
-    background-color: #f0f0f0;
-    border: 2px dashed var(--border-gray);
-    border-radius: var(--border-radius-md);
+    /* Removed background, border, and fixed heights to prevent empty space */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
+    margin: 25px auto; /* Slightly reduced margin for a tighter look */
     box-sizing: border-box;
+    overflow: hidden; /* Prevents ad overflow issues */
 }
 .ad-label { color: var(--text-secondary); font-weight: 500; }
-.ad-top-banner { min-height: 90px; max-width: 728px; width: 100%; }
-.ad-sidebar { min-height: 250px; width: 300px; flex-shrink: 0; }
+.ad-top-banner { max-width: 728px; width: 100%; }
+.ad-sidebar { max-width: 300px; width: 100%; flex-shrink: 0; margin-top: 0; }
+/* === END OF MODIFICATIONS === */
 
 
 /* Main Title */
@@ -101,7 +101,7 @@ body {
 .app-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.5; }
 
 /* Converter */
-.converter-wrapper { padding: 0; /* Padding is now on main-content */ }
+.converter-wrapper { padding: 0; }
 
 .uploader-area {
     border: 2px dashed var(--border-gray);
@@ -200,7 +200,7 @@ body {
     .dashboard-section { grid-template-columns: 1fr; }
 }
 
-/* === NEW STYLES ADDED FOR SMARTLINK AD BUTTON === */
+/* Smartlink Ad Button */
 .ad-smartlink-banner {
     background: transparent;
     border: none;
@@ -211,7 +211,7 @@ body {
 
 .smartlink-ad-btn {
     display: inline-block;
-    background: linear-gradient(45deg, #28a745, #218838); /* Green gradient */
+    background: linear-gradient(45deg, #28a745, #218838);
     color: white;
     padding: 20px 40px;
     border-radius: var(--border-radius-md);
