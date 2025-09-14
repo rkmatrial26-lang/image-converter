@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Smartlink Ad URL ---
+    const smartlinkUrl = 'https://www.revenuecpmgate.com/fcr44zjbxx?key=7c75a467eacaf805dcde7cb877f03180';
+
     // --- DOM Element Selection ---
     const uploaderArea = document.getElementById('uploader');
     const fileInput = document.getElementById('fileInput');
@@ -58,8 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle image removal
     removeBtn.addEventListener('click', resetInterface);
 
-    // Handle download button click
-    downloadBtn.addEventListener('click', convertAndDownload);
+    // --- MODIFIED: Handle download button click to include smartlink ---
+    downloadBtn.addEventListener('click', () => {
+        // First, open the smartlink ad in a new tab
+        window.open(smartlinkUrl, '_blank');
+        
+        // Then, proceed with the original conversion and download function
+        convertAndDownload();
+    });
 
 
     // --- Core Functions ---
