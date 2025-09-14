@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converter | Convert to JPG & PNG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header-nav">
+        <div class="nav-container">
+            <div class="logo">ImageConverter Pro</div>
+            <nav>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#article-section" class="nav-link">Why Convert?</a>
+                <a href="#" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div class="main-content">
+            <header class="app-header">
+                <h1>Instant Image Converter</h1>
+                <p>Convert any image to high-quality JPG or PNG format with a single click.</p>
+            </header>
+
+            <div class="ad-placeholder ad-top-banner">
+                <div class="ad-label">Advertisement Space (728 x 90)</div>
+                </div>
+
+
+            <div class="converter-wrapper">
+                <div id="uploader" class="uploader-area">
+                    <div class="uploader-content">
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <p class="upload-text"><strong>Click to upload</strong> or drag and drop</p>
+                        <p class="upload-hint">Supports WEBP, BMP, TIFF, and more</p>
+                    </div>
+                    <input type="file" id="fileInput" hidden accept="image/*">
+                </div>
+
+                <div id="previewArea" class="preview-area hidden">
+                    <div class="image-preview-wrapper">
+                        <img id="imagePreview" src="#" alt="Image Preview" />
+                        <button id="removeBtn" class="remove-button">&times;</button>
+                    </div>
+                    
+                    <div class="controls-container">
+                        <p class="controls-label">Convert to:</p>
+                        <div class="format-selector">
+                            <button class="format-btn active" data-format="jpeg">JPG</button>
+                            <button class="format-btn" data-format="png">PNG</button>
+                        </div>
+                        <button id="downloadBtn" class="download-btn">Convert & Download</button>
+                    </div>
+                </div>
+
+                <div id="processingOverlay" class="processing-overlay hidden">
+                    <div class="spinner"></div>
+                    <p>Converting...</p>
+                </div>
+            </div>
+
+            <section class="dashboard-section">
+                <div class="stat-card">
+                    <h4>Conversions Today</h4>
+                    <p>1,482</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Avg. File Size Saved</h4>
+                    <p>45%</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Users Online</h4>
+                    <p>89</p>
+                </div>
+            </section>
+            
+            <div class="content-layout">
+                <section id="article-section" class="article-section">
+                    <h2>Why You Should Convert Your Images</h2>
+                    <p>In the digital world, images are everything. But not all image formats are created equal. Using the right format can dramatically improve your website's loading speed, save storage space, and ensure your images look sharp on every device. Our tool makes this process effortless.</p>
+                    
+                    <h3>Key Benefits of JPG and PNG:</h3>
+                    <ul>
+                        <li><strong>JPG (JPEG):</strong> Best for photographs and complex images. It uses lossy compression to create much smaller file sizes, which is ideal for web pages that need to load quickly.</li>
+                        <li><strong>PNG:</strong> Perfect for graphics with sharp lines, text, or transparent backgrounds (like logos). Its lossless compression means you don't lose any quality, which is crucial for professional designs.</li>
+                    </ul>
+                    <p>By converting formats like WEBP, BMP, or TIFF to the universally supported JPG or PNG, you guarantee compatibility across all browsers and platforms, ensuring a seamless experience for your audience.</p>
+                </section>
+
+                <aside class="ad-placeholder ad-sidebar">
+                    <div class="ad-label">Advertisement Space (300 x 250)</div>
+                    </aside>
+            </div>
+        </div>
+    </div>
+
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+            <p>&copy; 2025 ImageConverter Pro. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
