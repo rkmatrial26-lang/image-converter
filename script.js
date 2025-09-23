@@ -1,173 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Smartlink Ad URL ---
-    const smartlinkUrl = 'https://www.revenuecpmgate.com/fcr44zjbxx?key=7c75a467eacaf805dcde7cb877f03180';
+    // --- Theme Toggle ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
 
-    // --- DOM Element Selection ---
-    const uploaderArea = document.getElementById('uploader');
-    const fileInput = document.getElementById('fileInput');
-    const previewArea = document.getElementById('previewArea');
-    const imagePreview = document.getElementById('imagePreview');
-    const removeBtn = document.getElementById('removeBtn');
-    const formatBtns = document.querySelectorAll('.format-btn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const processingOverlay = document.getElementById('processingOverlay');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    themeIcon.innerHTML = savedTheme === 'dark' ? sunIcon : moonIcon;
 
-    // --- State Management ---
-    let originalFile = null;
-    let originalFileName = '';
-    let selectedFormat = 'jpeg'; // Default format
-
-    // --- Event Listeners ---
-
-    // Trigger file input when the uploader area is clicked
-    uploaderArea.addEventListener('click', () => fileInput.click());
-
-    // Handle file selection
-    fileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            handleFile(file);
-        }
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeIcon.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon;
     });
 
-    // Drag and Drop functionality
-    uploaderArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        uploaderArea.classList.add('drag-over');
-    });
-
-    uploaderArea.addEventListener('dragleave', () => {
-        uploaderArea.classList.remove('drag-over');
-    });
-
-    uploaderArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploaderArea.classList.remove('drag-over');
-        const file = e.dataTransfer.files[0];
-        if (file) {
-            handleFile(file);
-        }
-    });
-
-    // Handle format selection
-    formatBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            formatBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selectedFormat = btn.dataset.format;
-        });
-    });
-
-    // Handle image removal
-    removeBtn.addEventListener('click', resetInterface);
-
-    // Handle download button click to include smartlink
-    downloadBtn.addEventListener('click', () => {
-        // First, open the smartlink ad in a new tab
-        window.open(smartlinkUrl, '_blank');
-        
-        // Then, proceed with the original conversion and download function
-        convertAndDownload();
-    });
-
-
-    // --- Core Functions ---
-
-    /**
-     * Handles the selected or dropped file.
-     * @param {File} file - The image file.
-     */
-    function handleFile(file) {
-        if (!file.type.startsWith('image/')) {
-            alert('Please upload an image file.');
-            return;
-        }
-
-        originalFile = file;
-        originalFileName = file.name.split('.').slice(0, -1).join('.'); // Get name without extension
-
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            imagePreview.src = e.target.result;
-            showPreview();
-        };
-        reader.readAsDataURL(file);
-    }
-
-    /**
-     * Switches the UI to show the image preview and conversion controls.
-     */
-    function showPreview() {
-        uploaderArea.classList.add('hidden');
-        previewArea.classList.remove('hidden');
-    }
-
-    /**
-     * Resets the UI to its initial state.
-     */
-    function resetInterface() {
-        previewArea.classList.add('hidden');
-        uploaderArea.classList.remove('hidden');
-        fileInput.value = ''; // Clear the file input
-        originalFile = null;
-        imagePreview.src = '#';
-    }
-
-    /**
-     * Converts the uploaded image to the selected format and triggers a download.
-     */
-    function convertAndDownload() {
-        if (!originalFile) return;
-
-        showProcessing(true);
-
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const img = new Image();
-            img.onload = () => {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                
-                canvas.width = img.width;
-                canvas.height = img.height;
-                
-                // For PNGs with transparency, fill background with white if converting to JPG
-                if (selectedFormat === 'jpeg') {
-                    ctx.fillStyle = '#FFFFFF';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // --- Lazy Loading for Images ---
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyLoad = (target) => {
+        const io = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    observer.disconnect();
                 }
+            });
+        });
+        io.observe(target);
+    };
+    lazyImages.forEach(lazyLoad);
 
-                ctx.drawImage(img, 0, 0);
-
-                const mimeType = `image/${selectedFormat}`;
-                // For JPG, quality can be specified (0.0 to 1.0)
-                const dataUrl = canvas.toDataURL(mimeType, 0.95);
-
-                // Create a temporary link to trigger download
-                const link = document.createElement('a');
-                link.href = dataUrl;
-                link.download = `${originalFileName}.${selectedFormat === 'jpeg' ? 'jpg' : 'png'}`;
-                
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                showProcessing(false);
-            };
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(originalFile);
-    }
-
-    /**
-     * Shows or hides the processing overlay.
-     * @param {boolean} isProcessing - True to show, false to hide.
-     */
-    function showProcessing(isProcessing) {
-        if (isProcessing) {
-            processingOverlay.classList.remove('hidden');
-        } else {
-            processingOverlay.classList.add('hidden');
-        }
+    // --- Reduced Motion ---
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotionQuery.matches) {
+        document.body.classList.add('reduced-motion');
     }
 });
+
+// Placeholder for tool-specific logic
+// This will be expanded in the individual tool pages
+function initTool(toolId) {
+    console.log(`Initializing ${toolId} tool...`);
+    // Add tool-specific event listeners and functions here
+}
