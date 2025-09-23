@@ -76,20 +76,18 @@ body {
 .app-footer p { margin: 0; color: #a1a1a6; font-size: 0.85rem; }
 
 
-/* === MODIFIED: Ad Placeholders Optimized for Live Ads === */
+/* Ad Placeholders */
 .ad-placeholder {
-    /* Removed background, border, and fixed heights to prevent empty space */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 25px auto; /* Slightly reduced margin for a tighter look */
+    margin: 25px auto;
     box-sizing: border-box;
-    overflow: hidden; /* Prevents ad overflow issues */
+    overflow: hidden;
 }
 .ad-label { color: var(--text-secondary); font-weight: 500; }
 .ad-top-banner { max-width: 728px; width: 100%; }
 .ad-sidebar { max-width: 300px; width: 100%; flex-shrink: 0; margin-top: 0; }
-/* === END OF MODIFICATIONS === */
 
 
 /* Main Title */
@@ -101,7 +99,7 @@ body {
 .app-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; margin: 0 auto; line-height: 1.5; }
 
 /* Converter */
-.converter-wrapper { padding: 0; }
+.converter-wrapper { padding: 0; position: relative; }
 
 .uploader-area {
     border: 2px dashed var(--border-gray);
