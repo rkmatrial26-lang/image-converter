@@ -3,150 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Converter | Convert to JPG & PNG</title>
+    <title>PixForge | AI-Powered Image Toolkit</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="app-header-nav">
         <div class="nav-container">
-            <div class="logo">ImageConverter Pro</div>
+            <div class="logo">PixForge</div>
             <nav>
-                <a href="#" class="nav-link">Home</a>
-                <a href="#article-section" class="nav-link">Learn More</a>
-                <a href="#footer" class="nav-link">Contact</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
             </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn">
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <div class="main-container">
         <div class="main-content">
-            <header class="app-header">
-                <h1>Instant Image Converter</h1>
-                <p>Convert any image to high-quality JPG or PNG format with a single click.</p>
-            </header>
+            <section class="hero-section">
+                <h1>AI-Powered All-in-One Image Toolkit</h1>
+                <p>Enhance, convert, and edit your images with the power of AI. Simple, fast, and free to use.</p>
+                <a href="tools.html" class="cta-button">Get Started for Free</a>
+                <div class="demo-metric">
+                    <p><strong>10M+ users</strong> — DEMO TEXT</p>
+                </div>
+            </section>
 
             <div class="ad-placeholder ad-top-banner">
-                <div class="ad-label">
-                    <script type="text/javascript">
-                        atOptions = {
-                            'key' : 'eff30c97e657ef437f8e0ab9937bbe86',
-                            'format' : 'iframe',
-                            'height' : 50,
-                            'width' : 320,
-                            'params' : {}
-                        };
-                    </script>
-                    <script type="text/javascript" src="//www.highperformanceformat.com/eff30c97e657ef437f8e0ab9937bbe86/invoke.js"></script>
-                </div>
+                <div class="ad-label">Header Banner Ad</div>
             </div>
 
-            <div class="converter-wrapper">
-                <div id="uploader" class="uploader-area">
-                    <div class="uploader-content">
-                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                        <p class="upload-text"><strong>Click to upload</strong> or drag and drop</p>
-                        <p class="upload-hint">Supports WEBP, BMP, TIFF, and more</p>
+            <section class="features-section">
+                <h2>Core Tools</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🖼️</div>
+                        <h3>Image Converter</h3>
+                        <p>Convert images between JPG, PNG, and WebP formats with ease.</p>
                     </div>
-                    <input type="file" id="fileInput" hidden accept="image/*">
-                </div>
-
-                <div id="previewArea" class="preview-area hidden">
-                    <div class="image-preview-wrapper">
-                        <img id="imagePreview" src="#" alt="Image Preview" />
-                        <button id="removeBtn" class="remove-button">&times;</button>
+                    <div class="feature-card">
+                        <div class="feature-icon">✂️</div>
+                        <h3>Cropper & Resizer</h3>
+                        <p>Crop and resize your images to the perfect dimensions.</p>
                     </div>
-                    
-                    <div class="controls-container">
-                        <p class="controls-label">Convert to:</p>
-                        <div class="format-selector">
-                            <button class="format-btn active" data-format="jpeg">JPG</button>
-                            <button class="format-btn" data-format="png">PNG</button>
-                        </div>
-                        <button id="downloadBtn" class="download-btn">Convert & Download</button>
+                    <div class="feature-card">
+                        <div class="feature-icon">✨</div>
+                        <h3>AI Enhancer</h3>
+                        <p>Automatically improve the quality of your images with AI.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧼</div>
+                        <h3>Background Remover</h3>
+                        <p>Remove the background from any image with a single click.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>AI Upscaler</h3>
+                        <p>Increase the resolution of your images without losing quality.</p>
+                    </div>
+                     <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Background Replacer</h3>
+                        <p>Replace the background of any image with a new one.</p>
                     </div>
                 </div>
+            </section>
 
-                <div id="processingOverlay" class="processing-overlay hidden">
-                    <div class="spinner"></div>
-                    <p>Converting...</p>
-                </div>
-            </div>
-
-            <div class="ad-placeholder ad-smartlink-banner">
-                 <a href="https://www.revenuecpmgate.com/fcr44zjbxx?key=7c75a467eacaf805dcde7cb877f03180" target="_blank" class="smartlink-ad-btn">
+             <div class="ad-placeholder ad-smartlink-banner">
+                 <a href="#" target="_blank" class="smartlink-ad-btn">
                     <span>Try Our Sponsor's Tool</span>
                     <small>Click for a special offer!</small>
                 </a>
             </div>
 
-            <section class="dashboard-section">
-                <div class="stat-card">
-                    <h4>Conversions Today</h4>
-                    <p>1,482</p>
-                </div>
-                <div class="stat-card">
-                    <h4>Avg. File Size Saved</h4>
-                    <p>45%</p>
-                </div>
-                <div class="stat-card">
-                    <h4>Users Online</h4>
-                    <p>89</p>
+            <section class="testimonials-section">
+                <h2>What Our Users Say (SAMPLE)</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"PixForge has been a game-changer for my workflow. The AI tools are incredibly powerful and easy to use."</p>
+                        <div class="testimonial-author">- Jane Doe, Graphic Designer (DEMO)</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I love the background remover tool. It's the best I've ever used, and it's free!"</p>
+                        <div class="testimonial-author">- John Smith, Photographer (DEMO)</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The AI upscaler is amazing. I can now use my old photos for high-resolution prints."</p>
+                        <div class="testimonial-author">- Sarah Lee, Marketing Manager (DEMO)</div>
+                    </div>
                 </div>
             </section>
-            
-            <div class="content-layout">
-                <section id="article-section" class="article-section">
-                    <h2>Why You Should Convert Your Images</h2>
-                    <p>In the digital world, images are everything. But not all image formats are created equal. Using the right format can dramatically improve your website's loading speed, save storage space, and ensure your images look sharp on every device. Our tool makes this process effortless.</p>
-                    
-                    <div class="ad-placeholder">
-                         <script type='text/javascript' src='//pl27641316.revenuecpmgate.com/ae/3d/ad/ae3dadcb7f4a3fa3cae68a0ee3de1003.js'></script>
-                    </div>
-                    <h3>Key Benefits of JPG and PNG:</h3>
-                    <ul>
-                        <li><strong>JPG (JPEG):</strong> Best for photographs and complex images. It uses lossy compression to create much smaller file sizes, which is ideal for web pages that need to load quickly.</li>
-                        <li><strong>PNG:</strong> Perfect for graphics with sharp lines, text, or transparent backgrounds (like logos). Its lossless compression means you don't lose any quality, which is crucial for professional designs.</li>
-                    </ul>
-                    <p>By converting formats like WEBP, BMP, or TIFF to the universally supported JPG or PNG, you guarantee compatibility across all browsers and platforms, ensuring a seamless experience for your audience.</p>
-
-                    <h3>How Does Image Compression Work?</h3>
-                    <p>Image compression is a process that reduces the size of an image file without significantly degrading its quality. There are two main types: lossy and lossless. Lossy compression (used by JPG) removes some data from the image, which is often unnoticeable to the human eye, to achieve a smaller file size. Lossless compression (used by PNG) finds patterns in the data to represent it more efficiently without discarding any information, preserving the original quality perfectly.</p>
-                    
-                    <h3>Choosing the Right Format for the Web</h3>
-                    <p>For most photos on your website, JPG is the best choice due to its excellent balance of quality and small file size. This leads to faster page load times and a better user experience. For logos, icons, illustrations, or any image where you need a transparent background, PNG is the ideal format. Our tool gives you the power to choose the perfect format for your needs.</p>
-                </section>
-
-                <aside class="ad-placeholder ad-sidebar">
-                    <div class="ad-label">
-                         <script type="text/javascript">
-                            atOptions = {
-                                'key' : 'eff30c97e657ef437f8e0ab9937bbe86',
-                                'format' : 'iframe',
-                                'height' : 250,
-                                'width' : 300,
-                                'params' : {}
-                            };
-                        </script>
-                        <script type="text/javascript" src="//www.highperformanceformat.com/eff30c97e657ef437f8e0ab9937bbe86/invoke.js"></script>
-                    </div>
-                </aside>
-            </div>
         </div>
     </div>
 
     <footer class="app-footer" id="footer">
         <div class="footer-container">
             <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
+                <a href="about.html">About Us</a>
+                <a href="legal.html">Privacy Policy</a>
+                <a href="legal.html">Terms of Service</a>
+                <a href="support.html">Contact</a>
             </div>
-            <p>&copy; 2025 ImageConverter Pro. All Rights Reserved.</p>
+            <p>&copy; 2025 PixForge. All Rights Reserved.</p>
         </div>
     </footer>
 
