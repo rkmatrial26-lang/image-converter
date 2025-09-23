@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converter - PixForge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo-link"><div class="logo">PixForge</div></a>
+            <nav>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+            </nav>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <section class="page-header">
+                <h1>Image Converter</h1>
+                <p>Convert any image to high-quality JPG or PNG format with a single click.</p>
+            </section>
+
+            <div class="converter-wrapper">
+                <div id="uploader" class="uploader-area">
+                    <div class="uploader-content">
+                        <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        <p class="upload-text"><strong>Click to upload</strong> or drag and drop</p>
+                        <p class="upload-hint">Supports WEBP, BMP, TIFF, and more</p>
+                    </div>
+                    <input type="file" id="fileInput" hidden accept="image/*">
+                </div>
+
+                <div id="previewArea" class="preview-area hidden">
+                    <div class="image-preview-wrapper">
+                        <img id="imagePreview" src="#" alt="Image Preview" />
+                        <button id="removeBtn" class="remove-button" aria-label="Remove image">&times;</button>
+                    </div>
+                    
+                    <div class="controls-container">
+                        <p class="controls-label">Convert to:</p>
+                        <div class="format-selector">
+                            <button class="format-btn active" data-format="jpeg">JPG</button>
+                            <button class="format-btn" data-format="png">PNG</button>
+                        </div>
+                        <button id="downloadBtn" class="download-btn">Convert & Download</button>
+                    </div>
+                </div>
+
+                <div id="processingOverlay" class="processing-overlay hidden">
+                    <div class="spinner"></div>
+                    <p>Converting...</p>
+                </div>
+            </div>
+
+            <div class="ad-placeholder ad-top-banner" style="margin-top: 40px;">
+                <script type='text/javascript' src='//pl27641316.revenuecpmgate.com/ae/3d/ad/ae3dadcb7f4a3fa3cae68a0ee3de1003.js'></script>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+    <script src="converter.js"></script> </body>
+</html>
