@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle image removal
     removeBtn.addEventListener('click', resetInterface);
 
-    // --- MODIFIED: Handle download button click to include smartlink ---
+    // Handle download button click to include smartlink
     downloadBtn.addEventListener('click', () => {
         // First, open the smartlink ad in a new tab
         window.open(smartlinkUrl, '_blank');
